@@ -1,0 +1,66 @@
+1) Datatype
+
+package Day0.assignment;
+
+import java.util.*;
+public class dataType {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter an Integer: ");
+        int a = sc.nextInt();
+        System.out.print("Enter a Float: ");
+        float b = sc.nextFloat();
+        System.out.print("Enter a Character: ");
+        char c = sc.next().charAt(0);
+        b += Float.valueOf(a);
+        a += (int) c;
+        System.out.println(a);
+        System.out.println(b);
+        System.out.println(c);
+
+    }
+}
+
+2)Arithematic
+
+package Day0.assignment;
+
+import java.util.*;
+public class arithematic {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int a = sc.nextInt();
+        int b = sc.nextInt();
+        double c = sc.nextDouble();
+        int add = a+b;
+        System.out.println("Addition: "+add);
+        System.out.println("Subtraction: "+(a-b));
+        System.out.println("Multiplication: "+(a*b));
+        System.out.println("Division "+(a/b));
+        System.out.println("Additioon and Double is: "+(add*c));
+    }
+}
+
+3)bitWiseOperator
+
+package Day0.assignment;
+
+import java.util.*;
+public class bitWiseoperator {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter the first integer: ");
+        int a = sc.nextInt();
+        System.out.print("Enter the second integer: ");
+        int b = sc.nextInt();
+        System.out.println("AND: " + (a & b));
+        System.out.println("OR: " + (a | b));
+        System.out.println("XOR: " + (a ^ b));
+        System.out.println("Left Shift of a: " + (a << 2));
+        System.out.println("Left Shift of b: " + (b << 2));
+        System.out.println("Right Shift of a: " + (a >> 2));
+        System.out.println("Right Shift of b: " + (b >> 2));
+    }
+}
+
+
