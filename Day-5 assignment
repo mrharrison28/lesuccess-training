@@ -1,0 +1,91 @@
+1) number of digits
+
+package Day5.assignment;
+import java.util.*;
+public class numberOfDigits {
+    public static int countDigits(int number) {
+        if (number < 10) {
+            return 1;
+        } else {
+            return 1 + countDigits(number / 10);
+        }
+    }
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int number = sc.nextInt();
+        int digitCount = countDigits(number);
+        System.out.println("The number of digits in " + number + " is " + digitCount);
+    }
+}
+
+2) String is Palindrome
+
+package Day5.assignment;
+import java.util.*;
+public class palindrome {
+    public static boolean isPalindrome(String str, int start, int end) {
+        if (start >= end) {
+            return true;
+        }
+        if (str.charAt(start) != str.charAt(end)) {
+            return false;
+        }
+        return isPalindrome(str, start + 1, end - 1);
+    }
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        String input = sc.nextLine();
+        boolean result = isPalindrome(input, 0, input.length() - 1);
+        if (result) {
+            System.out.println("Yes");
+        } else {
+            System.out.println("No");
+        }
+    }
+}
+
+3) Power of a Number
+
+package Day5.assignment;
+import java.util.*;
+public class powerOfNumbers {
+    public static int power(int a, int b) {
+        if (b == 0) {
+            return 1;
+        } else {
+            return a * power(a, b - 1);
+        }
+    }
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        int a = scanner.nextInt();
+        int b = scanner.nextInt();
+        int result = power(a, b);
+        System.out.println(result);
+    }
+}
+
+4) Character in String
+
+package Day5.assignment;
+import java.util.*;
+public class countDigits {
+    public static int countChar(String str, char ch, int index) {
+        if (index == str.length()) {
+            return 0;
+        }
+        if (str.charAt(index) == ch) {
+            return 1 + countChar(str, ch, index + 1);
+        } else {
+            return countChar(str, ch, index + 1);
+        }
+    }
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        String str = sc.nextLine();
+        char ch = sc.next().charAt(0);
+        int count = countChar(str, ch, 0);
+        System.out.println(count);
+    }
+}
