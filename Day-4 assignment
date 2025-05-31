@@ -1,0 +1,173 @@
+1) Palindrome
+
+package Day4.assignment;
+import java.util.*;
+public class palindrome {
+    public static void main(String[] args) {
+            Scanner sc = new Scanner(System.in);
+            String str = sc.nextLine();
+            String str1  ="";
+            for(int i=str.length()-1;i>=0;i--){
+                str1 = str1+str.charAt(i);
+            }
+            System.out.print(str1);
+            System.out.println();
+            if(str1.equals(str)){
+                System.out.println("Palindrome");
+            }
+            else{
+                System.out.println("Not palindrome");
+            }
+    }
+}
+
+2) Count Vowels and Consonants
+
+package Day4.assignment;
+import java.util.*;
+public class vowelsOrConsonant {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        String str = scanner.nextLine();
+        int vowel = 0, consonant = 0;
+        String low = str.toLowerCase();
+        for (int i = 0; i < low.length(); i++) {
+            char ch = low.charAt(i);
+            if (Character.isLetter(ch)) {
+                if ("aeiou".indexOf(ch) != -1) {
+                    vowel++;
+                } else {
+                    consonant++;
+                }
+            }
+        }
+        System.out.println("Vowels: " + vowel + ", Consonants: " + consonant);
+    }
+}
+
+3) Remove Duplicates
+
+package Day4.assignment;
+import java.util.Scanner;
+
+public class removeDuplicate {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        String str = scanner.nextLine();
+        String result = "";
+        for (int i = 0; i < str.length(); i++) {
+            char current = str.charAt(i);
+            if (result.indexOf(current) == -1) {
+                result += current;
+            }
+        }
+        System.out.println(result);
+    }
+}
+
+4) Reverse a String
+
+package Day4.assignment;
+import java.util.*;
+public class reverseString {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        String str = sc.nextLine();
+        StringBuilder sb = new StringBuilder(str);
+        sb.reverse();
+        System.out.print(sb);
+    }
+
+}
+
+5) Anagram Check
+
+package Day4.assignment;
+import java.util.*;
+public class anagram {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        String str1 = sc.nextLine();
+        String str2 = sc.nextLine();
+        if (func(str1, str2)) {
+            System.out.println("Anagrams");
+        } else {
+            System.out.println("Not Anagrams");
+        }
+    }
+    public static boolean func(String s1, String s2) {
+        if (s1.length() != s2.length())
+            return false;
+        char[] a = s1.toCharArray();
+        char[] b = s2.toCharArray();
+        Arrays.sort(a);
+        Arrays.sort(b);
+        return Arrays.equals(a, b);
+    }
+}
+
+6) Capitalize First Letter of Each Word
+
+package Day4.assignment;
+import java.util.*;
+public class capitalFirstLetter {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        String str = sc.nextLine();
+        StringBuilder result = new StringBuilder();
+        boolean capital = true;
+        for (char ch : str.toCharArray()) {
+            if (ch == ' ') {
+                result.append(ch);
+                capital = true;
+            } else if (capital) {
+                result.append(Character.toUpperCase(ch));
+                capital = false;
+            } else {
+                result.append(ch);
+            }
+        }
+
+
+    }
+}
+
+7) Count Word Occurrences
+
+package Day4.assignment;
+import java.util.*;
+public class wordCount {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        String text = sc.nextLine();
+        String search = sc.nextLine();
+        String[] words = text.split("\\s+");
+        int count = 0;
+        for (String word : words) {
+            if (word.equals(search)) {
+                count++;
+            }
+        }
+        System.out.println(count);
+    }
+}
+
+8) Toggle Case
+package Day4.assignment;
+import java.util.*;
+public class toggleCase {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        String input = sc.nextLine();
+        StringBuilder toggled = new StringBuilder();
+        for (int i = 0; i < input.length(); i++) {
+            char ch = input.charAt(i);
+            if (ch >= 'A' && ch <= 'Z') {
+                toggled.append((char)(ch + 32));
+            } else if (ch >= 'a' && ch <= 'z') {
+                toggled.append((char)(ch - 32));
+            }
+        }
+        System.out.println(toggled.toString());
+    }
+}
