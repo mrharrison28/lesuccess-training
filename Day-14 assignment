@@ -1,0 +1,129 @@
+1) ImplementAQueueUsingArray
+
+class ImplementAQueueUsingArray {
+    int front, rear;
+    int[] queue;
+    public ImplementAQueueUsingArray() {
+        queue = new int[100];
+        front = 0;
+        rear = 0;
+    }
+    public void enqueue(int value) {
+        if (rear == 100) {
+            System.out.println("Queue is full");
+            return;
+        }
+        queue[rear++] = value;
+    }
+    public void dequeue() {
+        if (front == rear) {
+            System.out.println("Queue is empty");
+            return;
+        }
+        front++;
+    }
+    public void display() {
+        if (front == rear) {
+            System.out.println("Queue is empty");
+            return;
+        }
+        for (int i = front; i < rear; i++) {
+            System.out.print(queue[i] + " ");
+        }
+        System.out.println();
+    }
+    public static void main(String[] args) {
+        ImplementAQueueUsingArray q = new ImplementAQueueUsingArray();
+        q.enqueue(10);
+        q.enqueue(20);
+        q.enqueue(30);
+        q.display();
+        q.dequeue();
+        q.display();
+    }
+}
+
+2) ImplementAQueueUsingLinkedList
+
+class Node {
+    int data;
+    Node next;
+    Node(int data) {
+        this.data = data;
+        this.next = null;
+    }
+}
+class ImplementAQueueUsingLinkedList {
+    Node front, rear;
+    public ImplementAQueueUsingLinkedList() {
+        front = rear = null;
+    }
+    public void enqueue(int value) {
+        Node newNode = new Node(value);
+        if (rear == null) {
+            front = rear = newNode;
+            return;
+        }
+        rear.next = newNode;
+        rear = newNode;
+    }
+    public void dequeue() {
+        if (front == null) {
+            System.out.println("Queue is empty");
+            return;
+        }
+        front = front.next;
+        if (front == null) rear = null;
+    }
+    public void display() {
+        Node temp = front;
+        while (temp != null) {
+            System.out.print(temp.data + " ");
+            temp = temp.next;
+        }
+        System.out.println();
+    }
+    public static void main(String[] args) {
+        ImplementAQueueUsingLinkedList q = new ImplementAQueueUsingLinkedList();
+        q.enqueue(10);
+        q.enqueue(20);
+        q.enqueue(30);
+        q.display();
+        q.dequeue();
+        q.display();
+    }
+}
+
+3) ReverseFirstKElementsOfQueue
+
+import java.util.*;
+public class ReverseFirstKElementsOfQueue {
+    public static Queue<Integer> reverseFirstK(Queue<Integer> q, int k) {
+        if (q == null || k > q.size()) return q;
+        Stack<Integer> stack = new Stack<>();
+        for (int i = 0; i < k; i++) {
+            stack.push(q.poll());
+        }
+        while (!stack.isEmpty()) {
+            q.add(stack.pop());
+        }
+        int size = q.size();
+        for (int i = 0; i < size - k; i++) {
+            q.add(q.poll());
+        }
+        return q;
+    }
+    public static void main(String[] args) {
+        Queue<Integer> q = new LinkedList<>();
+        q.add(1);
+        q.add(2);
+        q.add(3);
+        q.add(4);
+        q.add(5);
+        int k = 3;
+        Queue<Integer> result = reverseFirstK(q, k);
+        while (!result.isEmpty()) {
+            System.out.print(result.poll() + " ");
+        }
+    }
+}
